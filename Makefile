@@ -17,7 +17,7 @@ $(CLEANED): $(INPUT)
 # Step 2: Remove stop words
 # Stop words are (is|the|in|but|can|a|the|is|in|of|to|a|that|it|for|on|with|as|this|was|at|by|an|be|from|or|are)
 $(STOPPED) : $(CLEANED)
-	gawk -f killstopXXX.awk $< > $@
+	gawk -f killstopWords.awk $< > $@
 
 # Step 3: Report frequency of words
 $(FREQS): $(STOPPED)
@@ -29,7 +29,7 @@ $(TOP_WORDS): $(FREQS)
 
 # Step 5: Generate table of word frequencies per paragraph
 $(TABLE): $(CLEANED) $(TOP_WORDS)
-	gawk -f ZZZ.awk PASS=1 $(TOP_WORDS) PASS=2 $(CLEANED) > $@
+	gawk -f table.awk PASS=1 $(TOP_WORDS) PASS=2 $(CLEANED) > $@
 
 # Cleanup
 clean:
