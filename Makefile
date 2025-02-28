@@ -1,11 +1,11 @@
 # Define variables
 INPUT = data.txt
-CLEANED = cleaned.txt
-STOPPED = stop.txt
+CLEANED = step1.txt
+STOPPED = step2.txt
 TOKENS = tokens.txt
 FREQS = word_counts.txt
-TOP_WORDS = top.txt
-TABLE = table.txt
+TOP_WORDS = step3.txt
+TABLE = step4.txt
 
 # Run the full pipeline
 all: $(TABLE)
